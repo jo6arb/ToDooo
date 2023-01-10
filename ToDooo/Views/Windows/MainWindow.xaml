@@ -10,7 +10,8 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
-        Title="Список мероприятий" Height="450" Width="800">
+        DataContext="{Binding MainWindowViewModel, Source={StaticResource Locator}}"
+        Title="{Binding Title}" Height="450" Width="800">
     <DockPanel>
         <!--#region Меню главного окна  -->
             <Menu DockPanel.Dock="Top">
