@@ -11,7 +11,152 @@
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
         Title="Список мероприятий" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <DockPanel>
+        <!--#region Меню главного окна  -->
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="файл" Height="25">
+                    <MenuItem Header="Выход" Height="25"/>
+                </MenuItem >
+                <MenuItem Header="Помощь" Height="25">
+                    <MenuItem Header="О программе" Height="25"/>
+                </MenuItem>
+            </Menu>
+        <!--#endregion-->
+
+        <!--#region СтатусБар -->
+
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem MinWidth="120">
+                <TextBlock Text="{Binding Status}" />
+            </StatusBarItem>
+            <StatusBarItem>
+                <ProgressBar Width="120" Height="14" Value="30" />
+            </StatusBarItem>
+        </StatusBar>
+        <!--#endregion-->
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <!--#region Левое меню окна -->
+
+            <StackPanel Orientation="Vertical" Grid.Column="0"
+                        Background="#FF222222">
+                <ListView x:Name="Menu" Margin="0 70 0 0">
+                    <ListViewItem Height="60" Foreground="LightGray">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="CalendarTask"/>
+                            <TextBlock Text="Назначенные задания" />
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" Foreground="LightGray">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="CalendarTask"/>
+                            <TextBlock Text="Выполненные задания" />
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+
+            <!--#endregion-->
+            <!--#region Правая часть окна -->
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <!--#region Панель навигации -->
+                <Grid Grid.Row="0" MinHeight="100" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <StackPanel  Orientation="Horizontal"  MinWidth="150" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                        <TextBlock Text="Дата  внесения"/>
+                        <DatePicker IsDropDownOpen="False" SelectedDateFormat="Short" MinWidth="120" Margin="35 0 0 15" />
+                        <TextBlock Text="Дата  контроля" Margin="35 0 0 0"/>
+                        <DatePicker SelectedDateFormat="Short" IsDropDownOpen="False" MinWidth="120" Margin="35 0 0 15" />
+                    </StackPanel>
+                    <StackPanel Grid.Row="1"  Orientation="Horizontal"  MinWidth="150"  HorizontalAlignment="Left">
+                        <TextBlock Text="Название" VerticalAlignment="Center"/>
+                        <TextBox  MinWidth="150" MaxHeight="22" Margin=" 35 0 0 0"/>
+                        <TextBlock Text="Категория задачи" VerticalAlignment="Center" />
+                        <ComboBox MinWidth="140" Margin="35 0 0 0" />
+                        <Button Content="Найти" Margin="150 0 0 0" Command="{Binding CloseApplicationCommand}" HorizontalAlignment="Left" />
+                    </StackPanel>
+
+
+                </Grid>
+                <!--#endregion-->
+                <!--#region Список задач -->
+                <DockPanel Grid.Row="1">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" >
+                        <Button Content="Добавить задачу" Command="{Binding GoToCreateNewTaskCommand}"/>
+                    </StackPanel>
+
+                    <DataGrid  ItemsSource="{Binding MoreTaskCollection}"
+                               AutoGenerateColumns="False"
+                               CanUserAddRows="False"
+                               >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="№" Binding="{Binding Id}" />
+                            <DataGridTextColumn Header="Название"  Binding="{Binding Name}"/>
+                            <DataGridTemplateColumn Header="Дата добавления" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding DateAddTask, StringFormat=dd.MM.yyyy}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate >
+                                        <DatePicker SelectedDate="{Binding DateAddTask}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+
+
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Дата Контроля" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding DateControlTask, StringFormat=dd.MM.yyyy}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate >
+                                        <DatePicker SelectedDate="{Binding DateControlTask}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+
+
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Дата Выполнения" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding DateSuccessTask, StringFormat=dd.MM.yyyy}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate >
+                                        <DatePicker SelectedDate="{Binding DateSuccessTask}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+
+
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Приоритет"  Binding="{Binding Priority}"/>
+                            <DataGridTextColumn Header="Примечание" Binding="{Binding Note}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+
+                <!--#endregion-->
+
+            </Grid>
+
+            <!--#endregion-->
+        </Grid>
+    </DockPanel>
 </Window>
