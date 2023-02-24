@@ -1,6 +1,8 @@
-﻿namespace ToDooo.DAL.Entity.Base;
+﻿using System.Security.Principal;
 
-public abstract class Entity
+namespace ToDooo.DAL.Entity.Base;
+
+public abstract class Entity : IEntity
 {
 	public int Id { get; set; } = default;
 }

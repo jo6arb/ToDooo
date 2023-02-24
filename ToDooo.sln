@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDooo", "ToDooo\ToDooo.csproj", "{FDD0E916-41A5-455D-BA18-AB53BC0104F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDooo", "ToDooo\ToDooo.csproj", "{FDD0E916-41A5-455D-BA18-AB53BC0104F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDooo.DAL", "ToDooo.DAL\ToDooo.DAL.csproj", "{BF2BF3CA-EF37-45E9-88B8-42564723570C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDooo.DAL", "ToDooo.DAL\ToDooo.DAL.csproj", "{BF2BF3CA-EF37-45E9-88B8-42564723570C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDooo.Interfaces", "ToDooo.Interfaces\ToDooo.Interfaces.csproj", "{190D415F-540B-40D9-9F50-5910A8101085}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{BF2BF3CA-EF37-45E9-88B8-42564723570C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF2BF3CA-EF37-45E9-88B8-42564723570C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF2BF3CA-EF37-45E9-88B8-42564723570C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{190D415F-540B-40D9-9F50-5910A8101085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{190D415F-540B-40D9-9F50-5910A8101085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{190D415F-540B-40D9-9F50-5910A8101085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{190D415F-540B-40D9-9F50-5910A8101085}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
