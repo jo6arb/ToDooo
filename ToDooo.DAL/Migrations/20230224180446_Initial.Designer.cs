@@ -11,14 +11,14 @@ using ToDooo.DAL.Context;
 namespace ToDooo.DAL.Migrations
 {
     [DbContext(typeof(GoalDb))]
-    [Migration("20230109192649_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230224180446_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "7.0.1");
+            modelBuilder.HasAnnotation("ProductVersion", "7.0.3");
 
             modelBuilder.Entity("ToDooo.DAL.Entity.Goal", b =>
                 {

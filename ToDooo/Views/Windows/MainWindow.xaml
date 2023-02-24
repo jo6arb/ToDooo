@@ -28,7 +28,7 @@
 
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem MinWidth="120">
-                <TextBlock Text="{Binding Status}" />
+                <TextBlock />
             </StatusBarItem>
             <StatusBarItem>
                 <ProgressBar Width="120" Height="14" Value="30" />
@@ -86,7 +86,7 @@
                         <TextBox  MinWidth="150" MaxHeight="22" Margin=" 35 0 0 0"/>
                         <TextBlock Text="Категория задачи" VerticalAlignment="Center" />
                         <ComboBox MinWidth="140" Margin="35 0 0 0" />
-                        <Button Content="Найти" Margin="150 0 0 0" Command="{Binding CloseApplicationCommand}" HorizontalAlignment="Left" />
+                        <Button Content="Найти" Margin="150 0 0 0" HorizontalAlignment="Left" />
                     </StackPanel>
 
 
@@ -95,11 +95,10 @@
                 <!--#region Список задач -->
                 <DockPanel Grid.Row="1">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" >
-                        <Button Content="Добавить задачу" Command="{Binding GoToCreateNewTaskCommand}"/>
+                        <Button Content="Добавить задачу"/>
                     </StackPanel>
 
-                    <DataGrid  ItemsSource="{Binding MoreTaskCollection}"
-                               AutoGenerateColumns="False"
+                    <DataGrid  AutoGenerateColumns="False"
                                CanUserAddRows="False"
                                >
                         <DataGrid.Columns>

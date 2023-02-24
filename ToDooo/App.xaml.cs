@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Windows;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ToDooo.Data;
 using ToDooo.ViewModels;
 
 namespace ToDooo
@@ -20,14 +22,20 @@ namespace ToDooo
 		;
 
 		private static void ConfigureServices(HostBuilderContext host, IServiceCollection service) => service
+				.AddDataBase()
 				.AddViewModels()
+				
 		;
 
 
 		protected override async void OnStartup(StartupEventArgs e)
 		{
 			var host = Host;
-			base.OnStartup(e);
+
+            using (var scope = Services.CreateScope())
+                scope.ServiceProvider.GetRequiredService<DbInitializer>().InitializeAsync().Wait();
+
+            base.OnStartup(e);
 			await Host.StartAsync();
 		}
 

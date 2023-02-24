@@ -1,4 +1,4 @@
-﻿using System.Security.Principal;
+﻿using ToDooo.Interfaces;
 
 namespace ToDooo.DAL.Entity.Base;
 
