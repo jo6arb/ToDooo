@@ -52,7 +52,7 @@ namespace ToDooo.Data
             _Goals = new Goal[__GoalCount];
             for (var i = 0; i < __GoalCount; i++)
                 _Goals[i] = new Goal 
-                { 
+                {
                     Name = $"Задача {i + 1}",
                     DateAddGoal = DateTime.Now,
                     DateControlGoal = DateTime.Now,
@@ -60,10 +60,9 @@ namespace ToDooo.Data
                     Priority = (byte)(new Random()).Next(0, __GoalCount),
                     Note = $"Заметка {i + 1}"
                 };
-            await _db.AddRangeAsync(_Goals).ConfigureAwait(false);
-            await _db.SaveChangesAsync().ConfigureAwait(false);
+            await _db.AddRangeAsync(_Goals);
+            await _db.SaveChangesAsync();
             
-
             _logger.LogInformation("Инициализация Задач выполнено за {0} мс", timer.Elapsed.TotalSeconds);
         }
     }

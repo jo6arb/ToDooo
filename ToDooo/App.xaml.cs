@@ -27,8 +27,6 @@ namespace ToDooo
 				.AddViewModels()
 				.AddServices()
 		;
-
-
 		protected override async void OnStartup(StartupEventArgs e)
 		{
 			var host = Host;

@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using MathCore.Collections.Interfaces;
 using MathCore.ViewModels;
 using ToDooo.DAL.Entity;
+using ToDooo.Interfaces;
 using ToDooo.Services.Interfaces;
 
 namespace ToDooo.ViewModels;
@@ -10,6 +10,7 @@ public class MainWindowViewModel : ViewModel
 {
     private readonly IRepository<Goal> _goals;
     private readonly ICompleteGoal _complete;
+    public int CountGoals { get; set; }
     #region Title : string - Заголовок окна
 
     /// <summary>Заголовок окна</summary>
@@ -25,5 +26,7 @@ public class MainWindowViewModel : ViewModel
     {
         _goals = goals;
         _complete = complete;
+
+        var CountGoals = _complete.listGoal.Count();
     }
 }

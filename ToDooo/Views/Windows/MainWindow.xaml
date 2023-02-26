@@ -28,7 +28,11 @@
 
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem MinWidth="120">
-                <TextBlock />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Количество задач: "/>
+                    <TextBlock Text="{Binding CountGoals}"/>
+                </StackPanel>
+                
             </StatusBarItem>
             <StatusBarItem>
                 <ProgressBar Width="120" Height="14" Value="30" />
