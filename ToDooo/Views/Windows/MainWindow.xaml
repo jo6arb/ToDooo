@@ -46,27 +46,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <!--#region Левое меню окна -->
 
-            <StackPanel Orientation="Vertical" Grid.Column="0"
-                        Background="#FF222222">
-                <ListView x:Name="Menu" Margin="0 70 0 0">
-                    <ListViewItem Height="60" Foreground="LightGray">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="CalendarTask"/>
-                            <TextBlock Text="Назначенные задания" />
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="60" Foreground="LightGray">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="CalendarTask"/>
-                            <TextBlock Text="Выполненные задания" />
-                        </StackPanel>
-                    </ListViewItem>
-                </ListView>
-            </StackPanel>
-
-            <!--#endregion-->
             <!--#region Правая часть окна -->
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
