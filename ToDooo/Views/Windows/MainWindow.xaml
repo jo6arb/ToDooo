@@ -26,11 +26,10 @@
 
         <!--#region СтатусБар -->
 
-        <StatusBar DockPanel.Dock="Bottom">
+        <StatusBar >
             <StatusBarItem MinWidth="120">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Количество задач: "/>
-                    <TextBlock Text="{Binding CountGoals}"/>
                 </StackPanel>
                 
             </StatusBarItem>
@@ -135,10 +134,16 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </DockPanel>-->
-                <Menu Name="TaskMenu" Grid.Row="1">
-                    <MenuItem Header="Текущие задачи"/>
-                    <MenuItem Header="Выполненные задачи"/>
-                </Menu>
+                <DockPanel Grid.Row="1">
+                    <Menu Name="TaskMenu">
+                        <MenuItem Header="Текущие задачи" Command="{Binding ShowCurrentGoalCommand}"/>
+                        <MenuItem Header="Выполненные задачи" Command="{Binding ShowCompletedGoalCommand}"/>
+                    </Menu>
+                    <Grid>
+                        <ContentControl Content="{Binding CurrentModel}"/>
+                    </Grid>
+                </DockPanel>
+                
 
                 <!--#endregion-->
 

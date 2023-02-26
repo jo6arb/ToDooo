@@ -10,7 +10,8 @@
             <ResourceDictionary.MergedDictionaries>
                 <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-            </ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/main.xaml"/>
+                </ResourceDictionary.MergedDictionaries>
             <viewModels:ViewModelLocator x:Key="Locator"/>
             </ResourceDictionary>
     </Application.Resources>

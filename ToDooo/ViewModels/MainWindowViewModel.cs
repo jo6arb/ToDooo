@@ -24,14 +24,14 @@ public class MainWindowViewModel : ViewModel
 
     #endregion
 
-    #region CurrentVodel : ViewModel - Текущая дочерняя модель-представление
+    #region CurrentModel : ViewModel - Текущая дочерняя модель-представление
 
     /// <summary>Текущая модель-представление</summary>
-    private ViewModel _CurrentVodel;
+    private ViewModel _CurrentModel;
 
 
     /// <summary>Текущая модель-представление</summary>
-    public ViewModel CurrentVodel { get => _CurrentVodel; set => Set(ref _CurrentVodel, value); }
+    public ViewModel CurrentModel { get => _CurrentModel; set => Set(ref _CurrentModel, value); }
 
     #endregion
 
@@ -50,7 +50,7 @@ public class MainWindowViewModel : ViewModel
     /// <summary>Логика выполнения - Оторбразить представление текущих задач</summary>
     private void OnShowCurrentGoalCommandExecuted()
     {
-        _CurrentVodel = new CurrentGoalsViewModel(_goals);
+        _CurrentModel = new CurrentGoalsViewModel(_goals);
     }
 
     #endregion
@@ -70,7 +70,7 @@ public class MainWindowViewModel : ViewModel
     /// <summary>Логика выполнения - Оторбразить представление выполненных задач</summary>
     private void OnShowCompletedGoalCommandExecuted()
     {
-        _CurrentVodel = new CompleteGoalsViewModel(_goals);
+        _CurrentModel = new CompleteGoalsViewModel(_goals);
     }
 
     #endregion
