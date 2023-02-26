@@ -77,7 +77,7 @@
                 </Grid>
                 <!--#endregion-->
                 <!--#region Список задач -->
-                <DockPanel Grid.Row="1">
+                <!--<DockPanel Grid.Row="1">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" >
                         <Button Content="Добавить задачу"/>
                     </StackPanel>
@@ -134,7 +134,11 @@
                             <DataGridTextColumn Header="Примечание" Binding="{Binding Note}" />
                         </DataGrid.Columns>
                     </DataGrid>
-                </DockPanel>
+                </DockPanel>-->
+                <Menu Name="TaskMenu" Grid.Row="1">
+                    <MenuItem Header="Текущие задачи"/>
+                    <MenuItem Header="Выполненные задачи"/>
+                </Menu>
 
                 <!--#endregion-->
 
